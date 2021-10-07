@@ -1,0 +1,50 @@
+th {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+}
+
+.main {
+    width: 100%;
+}
+
+.setting {
+    background-color: grey;
+    border: grey 1px solid;   
+}
+
+.setting:hover {
+    background-color: grey;
+    border: grey 1px solid;   
+}
+
+table.tableSimTerm {
+    margin-bottom: 30px;
+}
+
+.regist {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.table {
+    width: auto;
+}
+
+.tableWidth {
+    width: auto;
+}
+
+#addItem {
+    width: 100%;
+}
+
+
