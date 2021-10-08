@@ -24,6 +24,11 @@
                 <td><input type="date" class="form-control" id="simStart"></td>
                 <td><input type="date" class="form-control" id="simEnd"></td>
                 <td><button class="btn btn-primary" id="createTable">テーブル作成</button></td>
+                <td><button type="button" class="btn btn-secondary" data-toggle="modal" 
+                    data-target="#confirmClearAll">
+                    クリア
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -50,11 +55,11 @@
 
         <!-- Modal 項目追加画面-->
         <div class="modal fade" id="registItem" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            aria-labelledby="addItemWindow" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title bg-primary text-white" id="staticBackdropLabel">項目追加</h5>
+                        <h5 class="modal-title bg-primary text-white" id="addItemWindow">項目追加</h5>
                     </div>
                     <div class="modal-body">
                         <table id="tableMain">
@@ -95,7 +100,7 @@
     </div>
 
     <!-- Modal 削除確認画面-->
-    <div class="modal fade" id="delItem" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="confirmDelItem" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="cofirm" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -108,6 +113,25 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal" id="runDel">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal クリア確認画面-->
+    <div class="modal fade" id="confirmClearAll" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="cofirm" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title bg-warning text-dark" id="cofirm">確認</h5>
+                </div>
+                <div class="modal-body">
+                    <p>ほんとにオールクリアでよかと？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="clearAll">OK</button>
                 </div>
             </div>
         </div>

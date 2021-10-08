@@ -8,10 +8,31 @@
 
     let itemNum = 0;
 
+    //テーブル作成ウィンドウ
     //シミュレーション開始・終了時期 登録ボタン
     const simStart = document.getElementById('simStart');
     const simEnd = document.getElementById('simEnd');
     const regist = document.getElementById('regist');
+    
+    //テーブル作成・クリアボタン
+    const clearAll = document.getElementById('clearAll');
+    const createTable = document.getElementById('createTable');
+
+    //テーブル作成ボタンの処理
+    createTable.addEventListener('click', ()=>{
+        simTerm();
+        createTable.setAttribute('disabled', true);
+
+        const runDel = document.getElementById('runDel');
+        runDel.addEventListener('click', ()=>{
+            runItemDel(itemNum);
+        });
+    });
+
+    //クリアボタンの処理
+    clearAll.addEventListener('click', ()=>{
+        location.reload();
+    });
 
     //モーダルウインドウ - 項目追加
     const startTime = document.getElementById('startTime');
@@ -26,19 +47,6 @@
     });
 
 
-    //テーブル作成ウィンドウ
-    const createTable = document.getElementById('createTable');
-
-    //テーブル作成ウインドウの処理
-    createTable.addEventListener('click', ()=>{
-        simTerm();
-        createTable.setAttribute('disabled', true);
-
-        const runDel = document.getElementById('runDel');
-        runDel.addEventListener('click', ()=>{
-            runItemDel(itemNum);
-        });
-    });
 
     // ===============================================
     // 機能：選択した項目を削除
@@ -108,7 +116,7 @@
         btnDel.classList.add('btn');
         btnDel.classList.add('btn-secondary');
         btnDel.setAttribute('data-toggle', 'modal')
-        btnDel.setAttribute('data-target', '#delItem')
+        btnDel.setAttribute('data-target', '#confirmDelItem')
         btnDel.textContent = '項目削除';
 
         thDelBtn.appendChild(btnDel);
