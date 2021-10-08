@@ -8,6 +8,21 @@
 
     let itemNum = 0;
 
+    //シミュレーション開始・終了時期
+    const simStart = document.getElementById('simStart');
+    const simEnd = document.getElementById('simEnd');
+
+    //モーダルウインドウ
+    const regist=document.getElementById('regist');
+    const startTime = document.getElementById('startTime');
+    const endTime = document.getElementById('endTime');
+
+    regist.addEventListener('click', ()=>{
+        startTime.value=simStart.value;
+        endTime.value=simEnd.value;
+    });
+
+
     //テーブル作成ウィンドウ
     const createTable = document.getElementById('createTable');
 
@@ -45,8 +60,6 @@
     // 機能：シミュレーション開始/終了時期から結果テーブルのHeadを作成
     // ===============================================
     function simTerm(){
-        const simStart = document.getElementById('simStart');
-        const simEnd = document.getElementById('simEnd');
         const dateArray1 = simStart.value.split(dateSepaStr);
         const dateArray2 = simEnd.value.split(dateSepaStr);
         const date2 = parseInt(dateArray2[1]) + (parseInt(dateArray2[0]) - parseInt(dateArray1[0])) * 12; 
@@ -113,11 +126,11 @@
             income.classList.add('btn-primary');
             extend.classList.remove('btn-primary');
             extend.classList.add('btn-secondary');
-        }else {
-            income.classList.remove('btn-primary');
-            income.classList.add('btn-secondary');
-            extend.classList.remove('btn-secondary');
-            extend.classList.add('btn-primary');
+        // }else {
+        //     income.classList.remove('btn-primary');
+        //     income.classList.add('btn-secondary');
+        //     extend.classList.remove('btn-secondary');
+        //     extend.classList.add('btn-primary');
         } 
     });
 
@@ -128,11 +141,11 @@
             extend.classList.add('btn-primary');
             income.classList.remove('btn-primary');
             income.classList.add('btn-secondary');
-        }else {
-            extend.classList.remove('btn-primary');
-            extend.classList.add('btn-secondary');
-            income.classList.remove('btn-secondary');
-            income.classList.add('btn-primary');
+        // }else {
+        //     extend.classList.remove('btn-primary');
+        //     extend.classList.add('btn-secondary');
+        //     income.classList.remove('btn-secondary');
+        //     income.classList.add('btn-primary');
         } 
     });
 
@@ -140,8 +153,8 @@
         //モーダルウィンドウの設定項目
         const itemName = document.getElementById('itemName');
         const cost = document.getElementById('cost');
-        const startTime = document.getElementById('startTime');
-        const endTime = document.getElementById('endTime');
+        // const startTime = document.getElementById('startTime');
+        // const endTime = document.getElementById('endTime');
         const resultTable = document.getElementById('resultTable-thead');
         const child = resultTable.children;
         const startOffset = getDateDif(child.item(1).textContent, startTime.value) + offsetColumn;
