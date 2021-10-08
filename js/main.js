@@ -8,18 +8,21 @@
 
     let itemNum = 0;
 
-    //シミュレーション開始・終了時期
+    //シミュレーション開始・終了時期 登録ボタン
     const simStart = document.getElementById('simStart');
     const simEnd = document.getElementById('simEnd');
+    const regist = document.getElementById('regist');
 
-    //モーダルウインドウ
-    const regist=document.getElementById('regist');
+    //モーダルウインドウ - 項目追加
     const startTime = document.getElementById('startTime');
     const endTime = document.getElementById('endTime');
+    const itemName = document.getElementById('itemName');
+    const cost = document.getElementById('cost');
+    const resultTable = document.getElementById('resultTable-thead');
 
     regist.addEventListener('click', ()=>{
-        startTime.value=simStart.value;
-        endTime.value=simEnd.value;
+        startTime.value = simStart.value;
+        endTime.value = simEnd.value;
     });
 
 
@@ -31,8 +34,8 @@
         simTerm();
         createTable.setAttribute('disabled', true);
 
-        const itemDel = document.getElementById('itemDel');
-        itemDel.addEventListener('click', ()=>{
+        const runDel = document.getElementById('runDel');
+        runDel.addEventListener('click', ()=>{
             runItemDel(itemNum);
         });
     });
@@ -101,10 +104,11 @@
         thDelBtn.classList.add('tableWidh');
 
         const btnDel = document.createElement('button');
-        btnDel.setAttribute('id', 'itemDel');
         btnDel.classList.add('bg-secondary');
         btnDel.classList.add('btn');
         btnDel.classList.add('btn-secondary');
+        btnDel.setAttribute('data-toggle', 'modal')
+        btnDel.setAttribute('data-target', '#delItem')
         btnDel.textContent = '項目削除';
 
         thDelBtn.appendChild(btnDel);
@@ -126,11 +130,6 @@
             income.classList.add('btn-primary');
             extend.classList.remove('btn-primary');
             extend.classList.add('btn-secondary');
-        // }else {
-        //     income.classList.remove('btn-primary');
-        //     income.classList.add('btn-secondary');
-        //     extend.classList.remove('btn-secondary');
-        //     extend.classList.add('btn-primary');
         } 
     });
 
@@ -141,21 +140,11 @@
             extend.classList.add('btn-primary');
             income.classList.remove('btn-primary');
             income.classList.add('btn-secondary');
-        // }else {
-        //     extend.classList.remove('btn-primary');
-        //     extend.classList.add('btn-secondary');
-        //     income.classList.remove('btn-secondary');
-        //     income.classList.add('btn-primary');
         } 
     });
 
+    //項目追加ボタン押下時の処理
     addItem.addEventListener('click', ()=>{
-        //モーダルウィンドウの設定項目
-        const itemName = document.getElementById('itemName');
-        const cost = document.getElementById('cost');
-        // const startTime = document.getElementById('startTime');
-        // const endTime = document.getElementById('endTime');
-        const resultTable = document.getElementById('resultTable-thead');
         const child = resultTable.children;
         const startOffset = getDateDif(child.item(1).textContent, startTime.value) + offsetColumn;
         const term = getDateDif(startTime.value, endTime.value);

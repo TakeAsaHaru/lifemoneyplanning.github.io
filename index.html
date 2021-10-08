@@ -27,8 +27,8 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <button type="button" class="btn btn-primary regist" data-toggle="modal"
-                        data-target="#staticBackdrop" id="regist">
+                    <button type="button" class="btn btn-primary regist" data-toggle="modal" data-target="#registItem"
+                        id="regist">
                         登録
                     </button>
                 </td>
@@ -48,8 +48,8 @@
             </table>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        <!-- Modal 項目追加画面-->
+        <div class="modal fade" id="registItem" data-backdrop="static" data-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -93,6 +93,27 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal 削除確認画面-->
+    <div class="modal fade" id="delItem" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="cofirm" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title bg-warning text-dark" id="cofirm">確認</h5>
+                </div>
+                <div class="modal-body">
+                    <p>選択した項目を削除しますか？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="runDel">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
